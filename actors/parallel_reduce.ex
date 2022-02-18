@@ -1,4 +1,5 @@
 defmodule ParallelReduce do
+  def p_reduce([a], acc, func), do: func.(a, acc)
   def p_reduce(enum, acc, func) do
     parent = self()
     lists = Enum.chunk_every(enum, 2)
