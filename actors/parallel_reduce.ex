@@ -7,7 +7,7 @@ defmodule ParallelReduce do
         [a, b] -> spawn_link(
           fn -> send(parent, {self(), func.(a, b)}) end)
         [a]  -> spawn_link(
-          fn -> send(parent, {self(), func.(a, acc)}) end)
+          fn -> send(parent, {self(), a}) end)
       end
     end)
 
